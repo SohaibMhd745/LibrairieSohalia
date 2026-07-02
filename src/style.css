@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'MinecraftDefault';
+  src: url('/assets/fonts/MinecraftDefault/MinecraftDefaultRegular.woff2') format('woff2'),
+       url('/assets/fonts/MinecraftDefault/MinecraftDefaultRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MinecraftDefault';
+  src: url('/assets/fonts/MinecraftDefault/MinecraftDefaultItalic.woff2') format('woff2'),
+       url('/assets/fonts/MinecraftDefault/MinecraftDefaultItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'MinecraftDefault';
+  src: url('/assets/fonts/MinecraftDefault/MinecraftDefaultBold.woff2') format('woff2'),
+       url('/assets/fonts/MinecraftDefault/MinecraftDefaultBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MinecraftDefault';
+  src: url('/assets/fonts/MinecraftDefault/MinecraftDefaultBoldItalic.woff2') format('woff2'),
+       url('/assets/fonts/MinecraftDefault/MinecraftDefaultBoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'MinecraftDefault', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+  user-select: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
