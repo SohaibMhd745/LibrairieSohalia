@@ -1,11 +1,15 @@
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import ImageGallery from './ImageGallery.vue'
 
 const props = defineProps({
   book: {
     type: Object,
     required: true
+  },
+  hideControls: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -56,6 +60,20 @@ onUnmounted(() => {
   window.removeEventListener('resize', updateScale)
 })
 
+watch(() => props.book.content, () => {
+  nextTick(() => {
+    calculatePages()
+    if (currentPage.value >= totalPages.value) {
+      currentPage.value = Math.max(0, totalPages.value - 1)
+    }
+  })
+})
+
+watch(() => props.book.id, () => {
+  currentPage.value = 0
+  viewMode.value = 'text'
+})
+
 const nextPage = () => {
   if (currentPage.value < totalPages.value - 1) {
     currentPage.value++
@@ -79,40 +97,42 @@ const toggleRead = () => {
 
 <template>
   <div class="book-overlay" @click.self="$emit('home')">
-    <div class="book-wrapper" :style="{ transform: `scale(${scaleFactor})` }">
-      <div class="pagination-info" :class="{ 'hidden': viewMode !== 'text' }">
-        Page {{ currentPage + 1 }} sur {{ totalPages }}
-      </div>
-      <div class="book-background">
-        <div v-if="viewMode === 'text'" class="book-content">
-          <div class="text-viewport">
-            <div 
-              class="text-columns" 
-              ref="textContent"
-              :style="{ transform: `translateX(-${currentPage * columnWidth}px)` }"
-            >
-              {{ book.content }}
+    <div class="book-wrapper" :style="{ transform: `scale(${scaleFactor})`, '--scale-factor': scaleFactor }">
+      <template v-if="viewMode === 'text'">
+        <div class="pagination-info">
+          Page {{ currentPage + 1 }} sur {{ totalPages }}
+        </div>
+        <div class="book-background">
+          <div class="book-content">
+            <div class="text-viewport">
+              <div 
+                class="text-columns" 
+                ref="textContent"
+                :style="{ transform: `translateX(-${currentPage * columnWidth}px)` }"
+              >
+                {{ book.content }}
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div v-else class="gallery-view">
-          <ImageGallery :images="book.images" />
-        </div>
 
-        <button 
-          v-if="viewMode === 'text' && currentPage > 0" 
-          class="page-button prev-button" 
-          @click="prevPage"
-        ></button>
-        <button 
-          v-if="viewMode === 'text' && currentPage < totalPages - 1" 
-          class="page-button next-button" 
-          @click="nextPage"
-        ></button>
+          <button 
+            v-if="currentPage > 0" 
+            class="page-button prev-button" 
+            @click="prevPage"
+          ></button>
+          <button 
+            v-if="currentPage < totalPages - 1" 
+            class="page-button next-button" 
+            @click="nextPage"
+          ></button>
+        </div>
+      </template>
+      
+      <div v-else class="gallery-view">
+        <ImageGallery :images="book.images" />
       </div>
 
-      <div class="controls">
+      <div v-if="!hideControls" class="controls">
         <button class="mc-button" @click="toggleRead">
           <span>
             {{ book.isRead ? 'Non lu' : 'Lu' }}
@@ -120,12 +140,12 @@ const toggleRead = () => {
         </button>
         <button v-if="book.images && book.images.length > 0" class="mc-button" @click="toggleView">
           <span>
-            {{ viewMode === 'text' ? 'Voir la galerie' : 'Voir le livre' }}
+            {{ viewMode === 'text' ? 'Galerie' : 'Livre' }}
           </span>
         </button>
         <button class="mc-button" @click="$emit('close')">
           <span>
-            Fermer
+            Retour
           </span>
         </button>
       </div>
@@ -138,8 +158,8 @@ const toggleRead = () => {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: transparent;
   display: flex;
   justify-content: center;

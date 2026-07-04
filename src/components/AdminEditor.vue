@@ -8,7 +8,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['update'])
+const emit = defineEmits(['update', 'back'])
 
 const localBook = ref({ ...props.book })
 const imageInput = ref('')
@@ -24,11 +24,20 @@ const addImage = () => {
   }
 }
 
+const updateCaption = (idx, caption) => {
+  const img = localBook.value.images[idx]
+  if (typeof img === 'string') {
+    localBook.value.images[idx] = { url: img, caption }
+  } else {
+    img.caption = caption
+  }
+}
+
 const removeImage = (index) => {
   localBook.value.images.splice(index, 1)
 }
 
-const publish = async () => {
+const saveBook = async () => {
   try {
     const res = await fetch('/api/save-book.php', {
       method: 'POST',
@@ -37,25 +46,36 @@ const publish = async () => {
     })
     const data = await res.json()
     if (data.success) {
-      alert('Livre publié avec succès!')
-      localBook.value = { title: '', date: new Date().toISOString().split('T')[0], content: '', images: [] }
+      alert('Livre sauvegardé avec succès!')
+      emit('back')
     } else {
-      alert('Erreur lors de la publication.')
+      alert('Erreur lors de la sauvegarde.')
     }
   } catch (error) {
-    console.error('Publish error', error)
+    console.error('Save error', error)
     alert('Erreur réseau.')
+  }
+}
+
+const toggleArchive = async () => {
+  const actionName = localBook.value.isArchived ? 'désarchiver' : 'archiver';
+  if (confirm(`Voulez-vous vraiment ${actionName} ce livre ?`)) {
+    localBook.value.isArchived = !localBook.value.isArchived
+    await saveBook()
   }
 }
 </script>
 
 <template>
   <div class="editor-container">
-    <h2>Nouvelle Entrée</h2>
+    <div class="header">
+      <button class="back-btn" @click="$emit('back')">Retour</button>
+      <h2>{{ localBook.id ? 'Éditer le livre' : 'Nouveau livre' }}</h2>
+    </div>
     
     <div class="form-group">
       <label>Titre</label>
-      <input v-model="localBook.title" type="text" placeholder="Titre de l'histoire" />
+      <input v-model="localBook.title" type="text" placeholder="Titre du livre" />
     </div>
 
     <div class="form-group">
@@ -64,37 +84,72 @@ const publish = async () => {
     </div>
 
     <div class="form-group">
-      <label>Images (URLs)</label>
+      <label>Images</label>
       <div class="image-input">
-        <input v-model="imageInput" type="text" placeholder="URL de l'image (ex: imgur)" @keyup.enter="addImage" />
+        <input v-model="imageInput" type="text" placeholder="URL de l'image" @keyup.enter="addImage" />
         <button @click="addImage">Ajouter</button>
       </div>
-      <ul class="image-list">
-        <li v-for="(img, idx) in localBook.images" :key="idx">
-          {{ img }} <button @click="removeImage(idx)">X</button>
-        </li>
-      </ul>
+      <div class="image-previews">
+        <div v-for="(img, idx) in localBook.images" :key="idx" class="image-preview-item">
+          <img :src="typeof img === 'string' ? img : img.url" class="thumb" />
+          <div class="image-preview-info">
+            <span class="img-url">{{ typeof img === 'string' ? img : img.url }}</span>
+            <input 
+              type="text" 
+              placeholder="Légende (optionnel)" 
+              :value="typeof img === 'string' ? '' : img.caption"
+              @input="updateCaption(idx, $event.target.value)"
+            />
+          </div>
+          <button class="remove-btn" @click="removeImage(idx)">X</button>
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label>Contenu</label>
-      <textarea v-model="localBook.content" rows="15" placeholder="Écrivez l'histoire ici..."></textarea>
+      <textarea v-model="localBook.content" rows="40" placeholder="Contenu du livre..."></textarea>
     </div>
 
-    <button class="publish-btn" @click="publish">Publier</button>
+    <div class="actions">
+      <button class="publish-button" @click="saveBook">{{ localBook.id ? 'Sauvegarder' : 'Créer' }}</button>
+      <button v-if="localBook.id" class="archive-button" @click="toggleArchive">
+        {{ localBook.value?.isArchived || localBook.isArchived ? 'Désarchiver' : 'Archiver' }}
+      </button>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .editor-container {
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-btn {
+  padding: 8px 16px;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #666;
+}
+
 h2 {
   font-family: 'MinecraftDefault', sans-serif;
   color: #fff;
+  margin: 0;
 }
 
 .form-group {
@@ -135,24 +190,64 @@ textarea {
   border: 1px solid #666;
 }
 
-.image-list {
-  list-style: none;
-  padding: 0;
-}
-
-.image-list li {
+.image-previews {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.image-preview-item {
+  display: flex;
+  align-items: center;
   background-color: #2a2a2a;
-  padding: 4px 8px;
-  margin-top: 4px;
+  padding: 8px;
+  gap: 12px;
 }
 
-.image-list button {
-  color: red;
+.thumb {
+  width: 120px;
+  height: 68px;
+  object-fit: cover;
+  border: 1px solid #444;
 }
 
-.publish-btn {
+.image-preview-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+
+.img-url {
+  font-size: 0.8rem;
+  color: #aaa;
+  word-break: break-all;
+}
+
+.remove-btn {
+  color: #ff5555;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.remove-btn:hover {
+  color: #ff0000;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.publish-button {
   padding: 12px;
   background-color: #4CAF50;
   color: white;
@@ -160,9 +255,25 @@ textarea {
   font-size: 1.1rem;
   border: none;
   cursor: pointer;
+  flex: 1;
 }
 
-.publish-btn:hover {
+.publish-button:hover {
   background-color: #45a049;
+}
+
+.archive-button {
+  padding: 12px;
+  background-color: #f44336;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+}
+
+.archive-button:hover {
+  background-color: #d32f2f;
 }
 </style>

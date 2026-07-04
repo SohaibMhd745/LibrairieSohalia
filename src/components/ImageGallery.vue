@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps({
   images: {
@@ -9,6 +9,14 @@ const props = defineProps({
 })
 
 const currentIndex = ref(0)
+
+const currentImage = computed(() => {
+  const img = props.images[currentIndex.value]
+  if (typeof img === 'string') {
+    return { url: img, caption: '' }
+  }
+  return img
+})
 
 const nextImage = () => {
   if (currentIndex.value < props.images.length - 1) {
@@ -25,44 +33,48 @@ const prevImage = () => {
 
 <template>
   <div class="gallery-container">
-    <button 
-      class="nav-btn prev-btn" 
-      @click="prevImage" 
-      :disabled="currentIndex === 0"
-      :class="{ hidden: currentIndex === 0 }"
-    ></button>
-    
     <div class="image-wrapper">
-      <img :src="images[currentIndex]" class="gallery-image" alt="Gallery image" />
+      <img :src="currentImage.url" class="gallery-image" alt="Gallery image" />
     </div>
 
-    <button 
-      class="nav-btn next-btn" 
-      @click="nextImage" 
-      :disabled="currentIndex === images.length - 1"
-      :class="{ hidden: currentIndex === images.length - 1 }"
-    ></button>
+    <div class="image-caption">
+      {{ currentImage.caption ? currentImage.caption : 'Aucune description.' }}
+    </div>
+
+    <div class="gallery-nav">
+      <button 
+        class="nav-btn prev-btn" 
+        @click="prevImage" 
+        :disabled="currentIndex === 0"
+        :class="{ hidden: currentIndex === 0 }"
+      ></button>
+      
+      <button 
+        class="nav-btn next-btn" 
+        @click="nextImage" 
+        :disabled="currentIndex === images.length - 1"
+        :class="{ hidden: currentIndex === images.length - 1 }"
+      ></button>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .gallery-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: relative;
+  gap: 16px;
 }
 
 .image-wrapper {
-  width: 80%;
-  height: 80%;
+  width: calc(min(85vw, 124vh) / var(--scale-factor, 1));
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
-  border: 4px solid #373737;
+  border: 2px solid #000;
 }
 
 .gallery-image {
@@ -71,15 +83,22 @@ const prevImage = () => {
   object-fit: contain;
 }
 
+.gallery-nav {
+  display: flex;
+  gap: 20px;
+}
+
 .nav-btn {
-  width: 32px;
-  height: 32px;
+  height: 16px;
+  aspect-ratio: 8 / 10;
   background-image: url('/assets/images/forward.webp');
-  background-size: cover;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
 }
 
 .nav-btn:hover {
@@ -87,21 +106,24 @@ const prevImage = () => {
 }
 
 .prev-btn {
-  left: 10px;
-  transform: translateY(-50%) scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .prev-btn:hover {
   background-image: url('/assets/images/forward_hover.webp');
-  transform: translateY(-50%) scaleX(-1);
-}
-
-.next-btn {
-  right: 10px;
+  transform: scaleX(-1);
 }
 
 .hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+.image-caption {
+  text-align: center;
+  max-width: 80%;
+  font-size: 1rem;
+  color: #ddd;
+  text-shadow: 1.4px 1.4px #000A;
 }
 </style>

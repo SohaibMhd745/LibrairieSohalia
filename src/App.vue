@@ -6,14 +6,14 @@ const route = useRoute()
 
 const openInventory = () => {
   if (route.name === 'home') {
-    router.push('/inventory')
+    router.push('/books')
   }
 }
 </script>
 
 <template>
   <svg class="bg-svg" viewBox="0 0 2560 1440" preserveAspectRatio="xMidYMid slice">
-    <image href="/assets/images/sohalia_bedroom.webp" width="2560" height="1440" />
+    <image href="https://raw.githubusercontent.com/SohaibMhd745/LibrairieSohalia/refs/heads/media/2026-07-01_01.05.21.webp" width="2560" height="1440" />
     <rect 
       v-if="route.name === 'home'"
       class="svg-hitbox" 

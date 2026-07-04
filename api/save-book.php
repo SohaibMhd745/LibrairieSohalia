@@ -25,24 +25,45 @@ if (file_exists($dataFile)) {
     $books = json_decode(file_get_contents($dataFile), true) ?: [];
 }
 
-$newId = 1;
-if (!empty($books)) {
-    $newId = max(array_column($books, 'id')) + 1;
+$existingIndex = -1;
+if (isset($input['id'])) {
+    foreach ($books as $index => $book) {
+        if ($book['id'] == $input['id']) {
+            $existingIndex = $index;
+            break;
+        }
+    }
 }
 
-$newBook = [
-    'id' => $newId,
-    'date' => $input['date'] ?? date('Y-m-d'),
-    'title' => $input['title'] ?? 'Untitled',
-    'content' => $input['content'] ?? '',
-    'images' => $input['images'] ?? [],
-    'isRead' => false
-];
+if ($existingIndex !== -1) {
+    $books[$existingIndex]['date'] = $input['date'] ?? $books[$existingIndex]['date'];
+    $books[$existingIndex]['title'] = $input['title'] ?? $books[$existingIndex]['title'];
+    $books[$existingIndex]['content'] = $input['content'] ?? $books[$existingIndex]['content'];
+    $books[$existingIndex]['images'] = $input['images'] ?? $books[$existingIndex]['images'];
+    if (isset($input['isArchived'])) {
+        $books[$existingIndex]['isArchived'] = $input['isArchived'];
+    }
+    $savedBook = $books[$existingIndex];
+} else {
+    $newId = 1;
+    if (!empty($books)) {
+        $newId = max(array_column($books, 'id')) + 1;
+    }
 
-$books[] = $newBook;
+    $savedBook = [
+        'id' => $newId,
+        'date' => $input['date'] ?? date('Y-m-d'),
+        'title' => $input['title'] ?? 'Untitled',
+        'content' => $input['content'] ?? '',
+        'images' => $input['images'] ?? [],
+        'isRead' => false,
+        'isArchived' => false
+    ];
+    $books[] = $savedBook;
+}
 
 if (file_put_contents($dataFile, json_encode($books, JSON_PRETTY_PRINT))) {
-    echo json_encode(['success' => true, 'book' => $newBook]);
+    echo json_encode(['success' => true, 'book' => $savedBook]);
 } else {
     http_response_code(500);
     echo json_encode(['error' => 'Failed to write data']);

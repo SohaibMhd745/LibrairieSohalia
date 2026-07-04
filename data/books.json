@@ -3,16 +3,78 @@
         "id": 1,
         "date": "2026-06-30",
         "title": "30\/06\/2026",
-        "content": "Aujourd'hui, il a plu toute la soir\u00e9e \u00e0 Karminea.\n\n\u00c0 mon arriv\u00e9e, Zack m'a montr\u00e9 un livre pos\u00e9 sur le plancher d'Horace Bank. Aekiro m'avait envoy\u00e9 un screen d'un autre livre m'\u00e9tant destin\u00e9, cach\u00e9 \u00e0 l'arri\u00e8re sous les marches du ponton. On s'y est rendus, rejoints par Yngvar, puis Youns, et enfin Pablo.\n\nChaque page a soigneusement \u00e9t\u00e9 lue. J'ai d\u00e9cid\u00e9 d'en donner une copie \u00e0 chaque joueur, quitte \u00e0 couper leurs sc\u00e8nes. Le message \u00e0 la fin valait bien trop \u00e0 mes yeux, pour ne pas \u00eatre transmis imm\u00e9diatement.\n\nEnfin, apr\u00e8s avoir rendu visite \u00e0 chaque joueur, j'ai choisi le toit de la banque comme zone de confort, et j'ai pris en main le deuxi\u00e8me livre, que moi seul avais. J'ai vite compris que si je ne t'avais pas envoy\u00e9 ce message la nuit derni\u00e8re, je l'aurais regrett\u00e9 de tout mon \u00eatre.\n\nJ'ai eu du mal \u00e0 accepter ton d\u00e9part, et l'averse se donna \u00e0 la danse pendant de longues heures encore.",
-        "images": [],
-        "isRead": false
-    },
-    {
-        "id": 2,
-        "date": "2026-07-01",
-        "title": "01\/07\/2026",
-        "content": "M. de R\u00eanal \u00e9tait absorb\u00e9 dans ce doute, lorsqu'il vit de loin un paysan, homme de pr\u00e8s de six pieds, qui, d\u00e8s le petit jour, semblait fort occup\u00e9 \u00e0 mesurer des pi\u00e8ces de bois d\u00e9pos\u00e9es le long du Doubs, sur le chemin de halage. Le paysan n'eut pas l'air fort satisfait de voir approcher M. le maire ; car ces pi\u00e8ces de bois obstruaient le chemin, et \u00e9taient d\u00e9pos\u00e9es l\u00e0 en contravention.\n\nIl \u00e9tait nuit ; \u00e0 peine fut-on assis, que Julien, usant de son ancien privil\u00e8ge, osa approcher les l\u00e8vres du bras de sa jolie voisine, et lui prendre la main. Il pensait \u00e0 la hardiesse dont Fouqu\u00e9 avait fait preuve avec ses ma\u00eetresses, et non \u00e0 Mme de R\u00eanal ; le mot \u00ab bien n\u00e9s \u00bb pesait encore sur son c\u0153ur. On lui serra la main, ce qui ne lui fit aucun plaisir. Loin d'\u00eatre fier, ou du moins reconnaissant du sentiment que Mme de R\u00eanal trahissait ce soir-l\u00e0 par des signes trop \u00e9vidents, la beaut\u00e9, l'\u00e9l\u00e9gance, la fra\u00eecheur le trouv\u00e8rent presque insensible. La puret\u00e9 de l'\u00e2me, l'absence de toute \u00e9motion haineuse prolongent sans doute la dur\u00e9e de la jeunesse. C'est la physionomie qui vieillit la premi\u00e8re chez la plupart des jolies femmes.\n\nqu'aux moyens de lui donner une vol\u00e9e de coups de b\u00e2ton sans se faire une affaire en police correctionnelle. Quoique le d\u00eener ne f\u00fbt indiqu\u00e9 que pur une heure, Julien trouva plus respectueux de se pr\u00e9senter d\u00e8s midi et demi dans le cabinet de travail de M. le directeur du d\u00e9p\u00f4t. Il le trouva \u00e9talant son importance au milieu d'une foule de cartons. Ses gros favoris noirs, son \u00e9norme quantit\u00e9 de cheveux, son bonnet grec plac\u00e9 de travers sur le haut de la t\u00eate, sa pipe immense, ses pantoufles brod\u00e9es, les grosses cha\u00eenes d'or crois\u00e9es en tous sens sur sa poitrine, et tout cet appareil d'un financier de province qui se croit homme \u00e0 bonnes fortunes, n'imposaient point \u00e0 Julien ; il n'en pensait que plus aux coups de b\u00e2ton qu'il lui devait.",
-        "images": [],
-        "isRead": false
+        "content": "Aujourd'hui, il a plu toute la soir\u00e9e \u00e0 Karminea.\n\n\u00c0 mon arriv\u00e9e, Zack m'a montr\u00e9 un livre pos\u00e9 sur le plancher d'Horace Bank. Aekiro m'avait envoy\u00e9 un screen d'un autre livre m'\u00e9tant destin\u00e9, cach\u00e9 \u00e0 l'arri\u00e8re sous les marches du ponton. On s'y est rendus, rejoints par Yngvar, puis Youns, et enfin Pablo.\n\nChaque page a soigneusement \u00e9t\u00e9 lue. J'ai d\u00e9cid\u00e9 d'en donner une copie \u00e0 chaque joueur, quitte \u00e0 couper leurs sc\u00e8nes. Le message \u00e0 la fin valait bien trop \u00e0 mes yeux, pour ne pas \u00eatre transmis imm\u00e9diatement.\n\nEnfin, apr\u00e8s avoir rendu visite \u00e0 chaque joueur, j'ai choisi le toit de la banque comme zone de confort, et j'ai pris en main le deuxi\u00e8me livre, que moi seul avais. J'ai vite compris que si je ne t'avais pas envoy\u00e9 ce message la nuit derni\u00e8re, je l'aurais regrett\u00e9 de tout mon \u00eatre.\n\nJ'ai fini par accepter ton d\u00e9part, mais l'averse se donna \u00e0 la danse pendant de longues heures encore sur Karminea.\n\nILS ONT KIDNAPP\u00c9 TITOU !!!\n\nJanuk et un groupe de citoyens ont eu le courage de se rendre au pied du ch\u00e2teau de Rinesthia, pour demander le retour de Titou. En voyant leur nombre, et surpris par leur arriv\u00e9e, les gardiens du Nether n'ont eu d'autre choix que de le rendre, avant que le groupe de Januk ne prenne la fuite par peur de mettre Titou en danger. \u00c7a m'a \u00e9tonn\u00e9 de les voir d\u00e9barquer comme \u00e7a au ch\u00e2teau quand je me suis tp.\n\nW Januk !\nVrai clap de fin pour Benzouz.\n\nMalgr\u00e9 les menaces de Rinesthia, il a tout racont\u00e9 \u00e0 ses amis avant de partir, amis dont une faisant partie du camp ennemi.\n\nCette horreur que l'on appelle Cyra (je la d\u00e9teste) a invent\u00e9 un pr\u00e9texte pour emmener Benzouz dans le Nether. Une fois proche du ch\u00e2teau, elle a disparu dans le brouillard, et un homme en armure noire a captur\u00e9 Benzouz.\n\n\n\nSur un flanc du ch\u00e2teau, Benzouz fut confront\u00e9 \u00e0 un membre de Rinesthia seul \u00e0 seul. Lorsque ce dernier retira son masque, il reconnut ces yeux \u00e9carlates dont il \u00e9tait jadis \u00e9pris (ceux de Cyra en gros).\n\nPi\u00e9g\u00e9 dans la spirale du d\u00e9ni, il compris lentement que tout \u00e9tait faux chez elle : ses \u00e9motions, ses souvenirs, son sourire, et leur lien fragilis\u00e9 auquel il tenait tant.\n\nAu seul de la porte du d\u00e9sespoir, il versa une derni\u00e8re larme qui se refl\u00e9ta dans l'\u00e9p\u00e9e noircie par la haine de Cyra, qui s'abattit sans attendre sur Benzouz.\n\nSon sang restera \u00e9tal\u00e9 \u00e0 tout jamais sur le plancher blanc du ch\u00e2teau. Cyra attendait en r\u00e9alit\u00e9 que Titou revienne en s\u00e9curit\u00e9 \u00e0 Karminea avant d'en finir avec lui.\n\n(j'ai failli pleurer irl devant la sc\u00e8ne c'\u00e9tait trop dur \u00e0 tank)\n\n\n\n\n\nKim Cannard est revenu... mais diff\u00e9rent de d'habitude. Il a fait plusieurs rondes en ville, en d\u00e9visageant les habitants d'un regard noir. Il tomba enfin sur celui qu'il cherchait : Julien Dupr\u00e9.\n\nIl l'a emmen\u00e9 sans h\u00e9sitation dans un lieu lointain, que seul lui et une amie connaissaient. Une fois isol\u00e9s, il lui exprima son m\u00e9contentement li\u00e9 \u00e0 l'\u00e9loignement de Julien de Kopia, et lui dit d'\u00e9crire un dernier message \u00e0 ses amis. La pauvre victime s'ex\u00e9cuta, entre la crainte et l'incompr\u00e9hension totale.\n\nUne fois le message envoy\u00e9, le canard ordonna \u00e0 Julien de se mettre dans un coin (coin), et brandit son \u00e9p\u00e9e devant lui. Il lui adressa ces derniers mots :\n\n\"J'esp\u00e8re que tu ne m'en voudras pas trop, mon fr\u00e8re.\"\n\nJulien r\u00e9pondit aussit\u00f4t :\n\n\"Bien s\u00fbr que je t'en veux.\"\n\nLe cri de Julien fit rage dans les tr\u00e9fonds de la grotte, qui abritait d\u00e9sormais froidement son corps inanim\u00e9, baignant dans une mare de sang.\nEmymyw a \u00e9t\u00e9 rejointe par son copain !! Il fait d\u00e9sormais partie du peuple de Medusa. D\u00fb \u00e0 son RP isol\u00e9 et sa longue pause, j'avais peur qu'elle se retrouve mise de c\u00f4t\u00e9.\n\nPourtant, Emy est en \u00e9troite relation avec les elfes et est li\u00e9e \u00e0 plusieurs trames. Aujourd'hui, elle m'a dit qu'elle se plaisait beaucoup sur le serveur.\n\n\u00c7a m'a vraiment fait plaisir.\n\n\n\n\nLes elfes ont d\u00e9couvert le banc du H... (le famoso banc du HRP)\n\nIls \u00e9taient venus en full RP, une fois assis je suis venu avec mon skin Yuta pour leur expliquer de fa\u00e7on subtile. Neptune, le nouveau policier, \u00e9tait l\u00e0 aussi et m'a insult\u00e9 \u00e0 son habitude. Ils ont tous explos\u00e9 de rire quand ils ont compris.\n\nC'est s\u00fbrement un truc d'humains et pas un truc d'elfes !\n\n\n\n\nLord Eclipse et Oscar ont trouv\u00e9 une nouvelle cachette pour fuir leur destin.\n\nComme tu le sais, la mort de Quentin a rendu Eclipse compl\u00e8tement fou. Il se balade partout avec une statue de lui, en le prenant pour le vrai Quentin. Il s'est mis \u00e0 agresser ceux qui cassaient ces statues, et a \u00e9t\u00e9 mis en prison pour avoir attaqu\u00e9 la pauvre Pauline.\n\nUne fois \u00e9vad\u00e9s avec son complice, qui n'a jamais voulu se retrouver l\u00e0, ils s'en sont pris \u00e0 Pitohuil et Hichem, rackett\u00e9s puis laiss\u00e9s au sol au milieu des flammes. Mais \u00e7a, c'\u00e9tait hier.\n\nAujourd'hui, ils ont trouv\u00e9 un terrain d'entente avec les deux tourtereaux, qui ont accept\u00e9 de les dissimuler dans leur b\u00e2timent souterrain durant leur cavale. J'ai d\u00e9couvert le build par l'occasion, c'est vraiment joli et dans le th\u00e8me de leur \u00eele !\n\nEclipse pr\u00e9f\u00e9rait faire la danse d'Izuna sur le lit, plut\u00f4t que de dormir pour se deco. Pito a ador\u00e9 jou\u00e9 la sc\u00e8ne, ils appr\u00e9cient leur implication dans une trame aussi dr\u00f4le.\nPour le contexte, la premi\u00e8re fois que Pito a connu Eclipse, c'\u00e9tait lors de sa visite du manoir Belazur. Il l'appelait \"d\u00e9coratrice de bo\u00eete de nuit\" avec m\u00e9pris comme \u00e0 son habitude, et elle me jetait des regards noirs de l'y avoir embarqu\u00e9e. Ils ont fini par bien s'entendre !\n\nJe m'entends bien avec Pitohuil, elle est tr\u00e8s sympa et ils sont adorables avec Hichem.\n\n\n\n\n\nIl est arriv\u00e9 quelque chose \u00e0 celui que l'on nomme Golden Sluje Belazur, mais nulle ne sait ce qui a pu se passer...\n\n",
+        "images": [
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.24.09.webp",
+                "caption": "Le destin de Titou entre les mains de Rinesthia."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.25.33.webp",
+                "caption": "Titou enfin lib\u00e9rable ! Il cherche refuge aupr\u00e8s de son ex-mentor Januk."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.03.04.webp",
+                "caption": "Le grand face \u00e0 face entre Benzouz et Cyra."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.03.28.webp",
+                "caption": "Le grand face \u00e0 face entre Benzouz et Cyra."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.04.09.webp",
+                "caption": "Le grand face \u00e0 face entre Benzouz et Cyra."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.33.33.webp",
+                "caption": "Entr\u00e9e de Kim Cannard et Julien Dupr\u00e9 dans la grotte secr\u00e8te."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.39.32.webp",
+                "caption": "L'envoi du message d'adieu de Julien Dupr\u00e9."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.41.04.webp",
+                "caption": "Le canard brandit son \u00e9p\u00e9e mena\u00e7ante, d'un air d\u00e9cid\u00e9."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.41.31.webp",
+                "caption": "Un coup brut, suivi d'un deuxi\u00e8me, avant de finir avec le coup fatal."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.42.16.webp",
+                "caption": "Sortie de Kim Cannard... de la grotte secr\u00e8te."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_23.15.10.webp",
+                "caption": "Emymyw et son copain visitent Karminea ensemble !"
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-07-01_22.09.13.webp",
+                "caption": "Mina et ses elfes sur le banc du HRP."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.51.03.webp",
+                "caption": "Entrevue secr\u00e8te entre Pitohuil, Hichem, Lord Eclipse et Oscar."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.51.41.webp",
+                "caption": "Entrevue secr\u00e8te entre Pitohuil, Hichem, Lord Eclipse et Oscar."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.52.03.webp",
+                "caption": "Entrevue secr\u00e8te entre Pitohuil, Hichem, Lord Eclipse et Oscar."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_23.13.27.webp",
+                "caption": "Lord Eclipse et Oscar juste avant d'aller dormir."
+            },
+            {
+                "url": "https:\/\/raw.githubusercontent.com\/SohaibMhd745\/LibrairieSohalia\/refs\/heads\/media\/2026-06-30_22.46.51.webp",
+                "caption": "Qui est-ce donc...?"
+            }
+        ],
+        "isRead": false,
+        "isArchived": false
     }
 ]

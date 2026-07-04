@@ -11,8 +11,8 @@ const router = createRouter({
       component: LandingPage
     },
     {
-      path: '/inventory',
-      name: 'inventory',
+      path: '/books',
+      name: 'books',
       component: InventoryView
     }
   ]

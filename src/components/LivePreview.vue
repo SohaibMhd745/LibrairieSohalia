@@ -19,7 +19,7 @@ const previewBook = computed(() => {
 
 <template>
   <div class="live-preview-container">
-    <BookUI :book="previewBook" @close="() => {}" @toggleRead="() => {}" />
+    <BookUI :book="previewBook" :hideControls="true" @close="() => {}" @toggleRead="() => {}" />
   </div>
 </template>
 

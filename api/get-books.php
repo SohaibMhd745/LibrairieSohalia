@@ -10,4 +10,12 @@ if (!file_exists($dataFile)) {
 }
 
 $data = file_get_contents($dataFile);
-echo $data;
+$books = json_decode($data, true) ?: [];
+
+if (!isset($_GET['all']) || $_GET['all'] !== '1') {
+    $books = array_values(array_filter($books, function($book) {
+        return empty($book['isArchived']);
+    }));
+}
+
+echo json_encode($books);
